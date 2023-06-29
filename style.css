@@ -1,0 +1,41 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.calculatorDisplay {
+  width: 95%;
+  min-height: 8rem;
+  background-color: #30a2ff;
+}
+.screen {
+  min-height: 7rem;
+  width: 98% !important;
+}
+.calculatorKeys {
+  width: 95%;
+  background-color: #30a2ff;
+  margin-top: -0.3rem;
+}
+p {
+  overflow: auto;
+}
+button {
+  width: 25%;
+  height: 5rem;
+  font-size: 1.3rem;
+  background-color: #fff5b8;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+button:hover {
+  scale: 1.07;
+}
+@media (min-width: 1024px) {
+  .calculatorDisplay {
+    width: 40%;
+  }
+  .calculatorKeys {
+    width: 40%;
+  }
+}
