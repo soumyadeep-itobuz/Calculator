@@ -18,6 +18,10 @@ body {
   width: 98% !important;
 }
 
+.screen:focus {
+  outline: none;
+}
+
 .calculatorKeys {
   width: 95%;
   background-color: #30a2ff;

@@ -14,11 +14,12 @@ function display(val) {
 
 function operator(val) {
   flagDecimal = 1;
-  show.value += val;
   if (flag === 0) {
+    show.value += val;
     arrNumber.push(val);
     flag = 1;
-  } else {
+  } else if(flag === 1 && arrNumber[arrNumber.length - 1] !== val) {
+    console.log(arrNumber)
     if (arrNumber[arrNumber.length - 1].includes("+")) {
       arrSplit = arrNumber[arrNumber.length - 1].split("+");
       result = Number(arrSplit[0]) + Number(arrSplit[1]);

@@ -19,21 +19,21 @@
         <input
           type="text"
           id="result"
-          class="screen w-100 fs-2 px-3 border border-1 rounded-4 bg-body-secondary align-self-center mx-2 text-end readonly"
+          class="screen w-100 fs-2 px-3 border border-1 rounded-4 bg-body-secondary align-self-center mx-2 text-end" readonly
         />
       </div>
       <div class="calculatorKeys align-self-center">
         <div class="d-flex gap-2 m-2">
           <button onclick="clearAll()">AC</button>
-          <button onclick="del()">Del</button>
+          <button onclick="del()"><i class="fa-sharp fa-solid fa-delete-left"></i></button>
           <button onclick="percent ()">%</button>
-          <button class="operator bg-warning" onclick="operator('/')">/</button>
+          <button class="operator bg-warning" onclick="operator('/')">&div;</button>
         </div>
         <div class="d-flex gap-2 m-2">
           <button class="button" onclick="display('7')">7</button>
           <button class="button" onclick="display('8')">8</button>
           <button class="button" onclick="display('9')">9</button>
-          <button class="operator bg-warning" onclick="operator('*')">*</button>
+          <button class="operator bg-warning" onclick="operator('*')">&times;</button>
         </div>
         <div class="d-flex gap-2 m-2">
           <button class="button" onclick="display('4')">6</button>
@@ -51,11 +51,14 @@
           <button class="button" onclick="display('0')">0</button>
           <button onclick="display('00')">00</button>
           <button onclick="decimal()">.</button>
-          <button class="bg-danger text-white" onclick="calculate()">=</button>
+          <button class="bg-danger text-white" onclick="calculate()"><i class="fa-solid fa-equals"></i></button>
         </div>
       </div>
     </div>
-
+    <script
+      src="https://kit.fontawesome.com/6dc7929f7c.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="script.js"></script>
   </body>
 </html>
