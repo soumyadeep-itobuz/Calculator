@@ -1,54 +1,78 @@
-let number = document.querySelector("#result");
-let answer = [];
+const show = document.querySelector("#result");
+let arrNumber = [];
+let arrSplit = [];
+let arr = [];
+let num = 0;
+let result = 0;
 let flag = 0;
+let flagDecimal = 0;
+
 function display(val) {
-    number.value += val;
-    if (val === "+" || val === "-" || val === "*" || val === "/") {
-        evaluate();
-    }
+  show.value += val;
+  arrNumber.push(show.value);
 }
-function evaluate() {
-    if (flag === 0) {
-        flag = 1;
+
+function operator(val) {
+  flagDecimal = 1;
+  show.value += val;
+  if (flag === 0) {
+    arrNumber.push(val);
+    flag = 1;
+  } else {
+    if (arrNumber[arrNumber.length - 1].includes("+")) {
+      arrSplit = arrNumber[arrNumber.length - 1].split("+");
+      result = Number(arrSplit[0]) + Number(arrSplit[1]);
+      show.value = result;
+    } else if (arrNumber[arrNumber.length - 1].includes("-")) {
+      arrSplit = arrNumber[arrNumber.length - 1].split("-");
+      result = Number(arrSplit[0]) - Number(arrSplit[1]);
+      show.value = result;
+    } else if (arrNumber[arrNumber.length - 1].includes("*")) {
+      arrSplit = arrNumber[arrNumber.length - 1].split("*");
+      result = Number(arrSplit[0]) * Number(arrSplit[1]);
+      show.value = result;
+    } else if (arrNumber[arrNumber.length - 1].includes("/")) {
+      arrSplit = arrNumber[arrNumber.length - 1].split("/");
+      result = Number(arrSplit[0]) / Number(arrSplit[1]);
+      show.value = result;
     }
-     else {
-        number.value = operate();
-        flag = 0;
-    }
+    show.value += val;
+  }
 }
-function operate() {
-    if (number.value.includes("+")) {
-        answer = number.value.split("+");
-        answer[0] = Number(answer[0]) + Number(answer[1]);
-        return answer[0];
-    } 
-    else if (number.value.includes("-")) {
-        answer = number.value.split("-");
-        answer[0] = Number(answer[0]) - Number(answer[1]);
-        return answer[0];
-    } 
-    else if (number.value.includes("*")) {
-        answer = number.value.split("*");
-        answer[0] = Number(answer[0]) * Number(answer[1]);
-        return answer[0];
-    } 
-    else if (number.value.includes("/")) {
-        answer = number.value.split("/");
-        answer[0] = Number(answer[0]) / Number(answer[1]);
-        return answer[0];
-    } 
-    else if (number.value.includes("%")) {
-        answer = number.value.split("%");
-        answer[0] = answer[0] / 100;
-        return answer[0];
-    }
-}
+
 function calculate() {
-    number.value = operate();
+  operator();
+  arr = show.value.split("undefined");
+  show.value = arr[0];
 }
+
+function decimal() {
+  if (!show.value.includes(".") && flagDecimal === 0) {
+    show.value += ".";
+  } else if (flagDecimal === 1) {
+    show.value += ".";
+    flagDecimal = -1;
+  } else if (flagDecimal === -1) {
+    console.log("Wrong");
+  }
+}
+
+function percent() {
+  if (show.value.includes('+') || show.value.includes('-') || show.value.includes('*') || show.value.includes('/')) {
+    calculate();
+    show.value = show.value / 100;
+  }
+  else
+    show.value = show.value / 100;
+}
+
 function clearAll() {
-    number.value = "";
+  show.value = "";
+  arrNumber = [];
+  flag = 0;
+  flagDecimal = 0;
 }
+
 function del() {
-    number.value = number.value.slice(0, -1);
+  show.value = show.value.slice(0, -1);
 }
